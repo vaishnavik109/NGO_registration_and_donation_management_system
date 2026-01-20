@@ -1,22 +1,14 @@
 const express = require("express");
 const app = express();
 
-// Middleware to read JSON body
-app.use(express.json());
+console.log("🚨 THIS SERVER.JS FILE IS RUNNING 🚨");
+console.log("📂 PATH:", __filename);
 
-// ---- ROUTES ----
-
-// Auth routes (Person 1)
-app.use("/auth", require("./auth/auth.routes"));
-
-// User registration routes (Person 1)
-app.use("/users", require("./users/user.routes"));
-
-
-
-// ---- SERVER ----
-const PORT = 3000;
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.get("/ping", (req, res) => {
+  res.send("PING OK FROM THIS FILE");
 });
+
+app.listen(3000, () => {
+  console.log("✅ SERVER LISTENING ON 3000");
+});
+
